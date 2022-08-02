@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 754860a39c6170a489d1a5e663c5cb2f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - healthBar: {instanceID: 0}
+  - deathEffect: {fileID: 53507377697888734, guid: 52d8cdaa11df1a54f9882e22ed7074b2,
+      type: 3}
+  - deathvoice: {instanceID: 0}
+  - damagedvoice: {instanceID: 0}
+  - attackvoice: {instanceID: 0}
+  - stats: {instanceID: 0}
+  - currentTarget: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
