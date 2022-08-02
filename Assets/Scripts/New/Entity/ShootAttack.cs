@@ -33,4 +33,9 @@ public class ShootAttack : AttackScript
         _myAnim.SetTrigger("exit");
         _entity.currentTarget = null;
     }
+
+    public override void PowerUp(float multiplier)
+    {
+        _spawner.damage *= 2;
+    }
 }

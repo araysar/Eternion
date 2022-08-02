@@ -60,6 +60,7 @@ public class PhoenixSpell : AttackScript
         phoenixCastAS.Play();
         yield return new WaitForSeconds(castingTime);
         castPhoenixEffect.SetActive(false);
+        if (_myEntity.currentHP <= 0) yield break;
 
         GetComponentInParent<Animator>().SetTrigger(animatorLaunchName);
         yield return new WaitForSeconds(0.15f);
@@ -71,5 +72,10 @@ public class PhoenixSpell : AttackScript
 
         _myEntity.GetComponent<Enemy_Shaman>().ExitAnimation();
         actionCoroutine = null;
+    }
+
+    public override void PowerUp(float multiplier)
+    {
+        throw new System.NotImplementedException();
     }
 }

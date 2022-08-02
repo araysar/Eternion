@@ -1,16 +1,25 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Character : Entity
 {
     [HideInInspector] public Rigidbody rb;
     [SerializeField] private AttackScript _attack;
     [SerializeField] private Controller _controller;
+    public GameObject powerUpEffect;
+    public bool healAvailable = true;
 
     void Start()
     {
         if (PlayerPrefs.GetFloat("PlayerHP") != 0) currentHP = PlayerPrefs.GetFloat("PlayerHP");
-        else currentHP = maxHP;
+        else
+        {
+            currentHP = maxHP;
+            PlayerPrefs.SetFloat("PlayerHP", maxHP);
+        }
+
+        if (PlayerPrefs.GetInt("PowerUp") == 1) powerUpEffect.SetActive(true);
 
         UpdateLifeBar();
         rb = GetComponent<Rigidbody>();

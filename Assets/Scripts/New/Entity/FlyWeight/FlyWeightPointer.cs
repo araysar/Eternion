@@ -17,4 +17,11 @@ public static class FlyWeightPointer
     {
         speed = 2.5f,
     };
+
+    public static FlyWeight Bullet = new FlyWeight
+    {
+        damage = 10,
+    };
+
+
 }

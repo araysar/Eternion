@@ -8,6 +8,7 @@ public class Golem : Entity
     public float attackRange;
     public AttackScript[] attack;
     private AttackScript currentAttack;
+    [SerializeField] private GameObject door;
 
     void Start()
     {
@@ -57,6 +58,12 @@ public class Golem : Entity
 
         currentAttack.StartAttack();
 
+    }
+
+    public override void Death()
+    {
+        base.Death();
+        if (door != null) Destroy(door);
     }
 
     public override void EndAttack()

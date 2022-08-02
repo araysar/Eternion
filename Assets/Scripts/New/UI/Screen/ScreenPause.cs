@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ScreenPause : MonoBehaviour, IScreen
@@ -9,6 +7,7 @@ public class ScreenPause : MonoBehaviour, IScreen
     public Button buttonResume, buttonOptions, buttonExit, buttonAds;
     public GameObject menuOptions, menuExit;
     public AdsManager _ads;
+
 
     public void ButtonResume()
     {
@@ -35,7 +34,7 @@ public class ScreenPause : MonoBehaviour, IScreen
     public void ButtonAds()
     {
         if (!_active) return;
-        if (_ads == null) return;
+        if (_ads == null || GetComponentInParent<Character>().healAvailable == false)  return;
 
         StartCoroutine(_ads.WaitToShow());
     }

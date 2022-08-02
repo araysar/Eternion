@@ -5,19 +5,17 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public GameObject impactEffect;
+    public GameObject powerUpEffect;
     public float speed;
     public float maxDistance;
     public float damage = 10;
     [SerializeField] private bool fromEnemy = false;
     public ObjectPool<Bullet> myCanastiten;
+    [HideInInspector] public BulletSpawner mySpawner;
     public int myEnemyLayer;
 
     private float _currentDistance;
 
-    private void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -36,23 +34,19 @@ public class Bullet : MonoBehaviour
         {
             if (other.GetComponent<IDamageable>() != null)
             {
-                other.GetComponent<IDamageable>().TakeDamage(damage);
-                if(impactEffect != null) Instantiate(impactEffect, transform.position, Quaternion.identity);
+                other.GetComponent<IDamageable>().TakeDamage(mySpawner.damage);
+                if(PlayerPrefs.GetInt("PowerUp") == 1 && impactEffect != null) Instantiate(impactEffect, transform.position, Quaternion.identity);
                 myCanastiten.ReturnObject(this);
             }
         }
 
         if (other.tag == "Limits")
         {
-            if (impactEffect != null) Instantiate(impactEffect);
+            if (PlayerPrefs.GetInt("PowerUp") == 1 && impactEffect != null) Instantiate(impactEffect);
             myCanastiten.ReturnObject(this);
         }
     }
 
-    public void PowerUp()
-    {
-        damage *= 2;
-    }
 
     #region SetActive
 

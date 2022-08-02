@@ -7,4 +7,6 @@ public abstract class AttackScript : MonoBehaviour
     public string animatorString = "attack";
     public abstract void StartAttack();
     public abstract void EndAttack();
+
+    public abstract void PowerUp(float multiplier);
 }

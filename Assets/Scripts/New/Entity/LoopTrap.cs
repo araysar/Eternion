@@ -43,7 +43,13 @@ public class LoopTrap : MonoBehaviour
     {
         if(other.GetComponent<Entity>() != null)
         {
-            other.GetComponent<Entity>().TakeDamage(damage);
+            Collider[] allTargets = Physics.OverlapSphere(transform.position, explosion.GetComponent<SphereCollider>().radius);
+            foreach (var item in allTargets)
+            {
+                if (item.GetComponent<IDamageable>() != null)
+                    item.GetComponent<IDamageable>().TakeDamage(damage);
+            }
+
             Instantiate(explosion, other.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

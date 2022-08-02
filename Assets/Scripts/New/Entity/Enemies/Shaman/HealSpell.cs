@@ -105,5 +105,8 @@ public class HealSpell : AttackScript
         particle.SetActive(false);
     }
 
-    
+    public override void PowerUp(float multiplier)
+    {
+        throw new System.NotImplementedException();
+    }
 }

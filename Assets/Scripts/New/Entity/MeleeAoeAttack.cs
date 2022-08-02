@@ -33,4 +33,8 @@ public class MeleeAoeAttack : AttackScript
         }
     }
 
+    public override void PowerUp(float multiplier)
+    {
+        throw new System.NotImplementedException();
+    }
 }

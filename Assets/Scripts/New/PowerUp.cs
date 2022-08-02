@@ -7,7 +7,7 @@ public class PowerUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (PlayerPrefs.GetInt("PowerUp") == 1) Destroy(gameObject);
     }
 
     // Update is called once per frame
@@ -21,7 +21,9 @@ public class PowerUp : MonoBehaviour
         Character character = other.GetComponent<Character>();
         if (character)
         {
-            character.GetComponent<Animator>().SetFloat("speed", 2);
+            PlayerPrefs.SetInt("PowerUp", 1);
+            PlayerPrefs.Save();
+            character.powerUpEffect.SetActive(true);
         }
         Destroy(gameObject);
     }

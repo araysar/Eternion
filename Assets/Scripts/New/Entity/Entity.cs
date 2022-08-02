@@ -25,7 +25,7 @@ public abstract class Entity : MonoBehaviour, IDamageable
     public float currentHP;
     public float maxHP;
 
-    public int loseScene = 3;
+    public int loseScene = 4;
     
     public Vector3 initialTransform;
 
@@ -111,7 +111,7 @@ public abstract class Entity : MonoBehaviour, IDamageable
         }
     }
 
-    public void Death()
+    public virtual void Death()
     {
         if (dead == false)
         {
@@ -157,8 +157,14 @@ public abstract class Entity : MonoBehaviour, IDamageable
     {
         gameObject.GetComponent<Rigidbody>().useGravity = false;
         gameObject.GetComponent<Collider>().enabled = false;
-        yield return new WaitForSeconds(5);
-        if (!isEnemy) SceneChanger.instance.LoadLevel(loseScene);
+        yield return new WaitForSeconds(3);
+        if (!isEnemy)
+        {
+            SceneChanger.instance.LoadLevel(loseScene);
+            PlayerPrefs.SetInt("PowerUp", 0);
+            PlayerPrefs.Save();
+        }
+        
 
         else
         {

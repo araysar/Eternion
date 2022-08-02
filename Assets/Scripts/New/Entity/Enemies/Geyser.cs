@@ -12,6 +12,7 @@ public class Geyser : MonoBehaviour
     private GameObject explosionGeyser;
     [SerializeField] private AudioSource preparationSound;
     [SerializeField] private AudioSource explosionSound;
+    [SerializeField] LayerMask targetMask;
 
     void Start()
     {
@@ -26,20 +27,16 @@ public class Geyser : MonoBehaviour
         preparationGeyser.SetActive(false);
         preparationSound.Stop();
         explosionGeyser.SetActive(true);
-        GetComponent<CapsuleCollider>().enabled = true;
         yield return new WaitForSeconds(0.1f);
+
+        Collider[] allTargets = Physics.OverlapSphere(transform.position, GetComponent<CapsuleCollider>().radius);
+        foreach (var item in allTargets)
+        {
+            if(item.GetComponent<IDamageable>() != null)
+                item.GetComponent<IDamageable>().TakeDamage(geyserDamage);
+        }
         explosionSound.Play();
-        GetComponent<CapsuleCollider>().enabled = false;
         yield return new WaitForSeconds(explosionSound.clip.length);
         Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<Entity>() != null)
-        {
-            other.GetComponent<Entity>().TakeDamage(geyserDamage);
-            GetComponent<CapsuleCollider>().enabled = false;
-        }
     }
 }

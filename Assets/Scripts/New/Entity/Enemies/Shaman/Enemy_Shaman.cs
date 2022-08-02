@@ -51,7 +51,7 @@ public class Enemy_Shaman : Entity
 
     public override void EndAttack()
     {
-        currentAttack.EndAttack();
+        if(currentHP > 0) currentAttack.EndAttack();
     }
 
     public void ReloadFight()

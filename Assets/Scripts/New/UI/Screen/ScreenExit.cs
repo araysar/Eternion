@@ -5,6 +5,12 @@ using UnityEngine;
 public class ScreenExit : MonoBehaviour, IScreen
 {
     bool _active;
+    private Character _myPlayer;
+
+    private void Start()
+    {
+        _myPlayer = GetComponentInParent<Character>();
+    }
 
     public void BTN_No()
     {
@@ -18,6 +24,7 @@ public class ScreenExit : MonoBehaviour, IScreen
         if (!_active) return;
 
         Time.timeScale = 1;
+        PlayerPrefs.SetFloat("PlayerHP", _myPlayer.currentHP);
         SceneChanger.instance.LoadLevel(0);
     }
 

@@ -7033,11 +7033,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1159723902, guid: f81dce3b8f1ce4266b00dd660227a963, type: 3}
       propertyPath: currentHP
-      value: 150
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1159723902, guid: f81dce3b8f1ce4266b00dd660227a963, type: 3}
       propertyPath: viewEnemyDistance
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159723902, guid: f81dce3b8f1ce4266b00dd660227a963, type: 3}
+      propertyPath: maxHP
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159723902, guid: f81dce3b8f1ce4266b00dd660227a963, type: 3}
+      propertyPath: isEnemy
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f81dce3b8f1ce4266b00dd660227a963, type: 3}

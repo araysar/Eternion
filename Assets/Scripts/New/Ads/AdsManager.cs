@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
+using UnityEngine.UI;
 
 public class AdsManager : MonoBehaviour
 {
@@ -32,8 +32,10 @@ public class AdsManager : MonoBehaviour
         if(_result == ShowResult.Finished && _myPlayer != null)
         {
             _myPlayer.currentHP = _myPlayer.maxHP;
+            _myPlayer.healAvailable = false;
             PlayerPrefs.SetFloat("PlayerHP", _myPlayer.currentHP);
             PlayerPrefs.Save();
+            GetComponent<Image>().color = Color.red;
             _myPlayer.UpdateLifeBar();
         }
     }
