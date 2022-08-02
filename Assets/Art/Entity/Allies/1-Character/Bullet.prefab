@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8304046617217894047}
-  - {fileID: 2223908776949270159}
+  - {fileID: 8439252615666153212}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactEffect: {fileID: 0}
-  powerUpEffect: {fileID: 2223908776949270152}
+  powerUpEffect: {fileID: 8439252615666153211}
   speed: 15
   maxDistance: 5
   damage: 10
@@ -145,7 +145,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1001 &5528878557322987842
+--- !u!1001 &2844114925318355249
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -219,15 +219,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afd9550beb11b1b4f95d8f514ac1fe2d, type: 3}
---- !u!1 &2223908776949270152 stripped
+--- !u!1 &8439252615666153211 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5937553000559906762, guid: afd9550beb11b1b4f95d8f514ac1fe2d,
     type: 3}
-  m_PrefabInstance: {fileID: 5528878557322987842}
+  m_PrefabInstance: {fileID: 2844114925318355249}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2223908776949270159 stripped
+--- !u!4 &8439252615666153212 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5937553000559906765, guid: afd9550beb11b1b4f95d8f514ac1fe2d,
     type: 3}
-  m_PrefabInstance: {fileID: 5528878557322987842}
+  m_PrefabInstance: {fileID: 2844114925318355249}
   m_PrefabAsset: {fileID: 0}
