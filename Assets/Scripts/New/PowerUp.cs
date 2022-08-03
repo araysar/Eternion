@@ -24,7 +24,7 @@ public class PowerUp : MonoBehaviour
             PlayerPrefs.SetInt("PowerUp", 1);
             PlayerPrefs.Save();
             character.powerUpEffect.SetActive(true);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

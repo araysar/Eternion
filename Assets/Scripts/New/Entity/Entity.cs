@@ -148,9 +148,12 @@ public abstract class Entity : MonoBehaviour, IDamageable
 
     public void ExitAnimation()
     {
-        _myAnim.SetFloat("speed", 0);
-        _myAnim.SetTrigger("exit");
-        attackTimer = StartCoroutine(AttackTimer());
+        if(currentHP > 0)
+        {
+            _myAnim.SetFloat("speed", 0);
+            _myAnim.SetTrigger("exit");
+            attackTimer = StartCoroutine(AttackTimer());
+        }
     }
 
     private IEnumerator DeathTimer()

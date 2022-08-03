@@ -13,7 +13,7 @@ public class ShootAttack : AttackScript
         if (!_entity.canAttack) return;
 
         var potato = _entity.DetectEnemy();
-        if (potato != null)
+        if (potato != null && potato.GetComponent<IDamageable>() != null)
         {
             _entity.transform.LookAt(potato.transform.position);
         }

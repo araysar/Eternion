@@ -1892,6 +1892,7 @@ MonoBehaviour:
   isEnemy: 0
   currentHP: 0
   maxHP: 100
+  loseScene: 4
   initialTransform: {x: 0, y: 0, z: 0}
   currentTarget: {fileID: 0}
   attackCooldown: 0
@@ -1902,6 +1903,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   _attack: {fileID: 1076089393620814259}
   _controller: {fileID: 993430424003879697}
+  powerUpEffect: {fileID: 7107700184510220216}
+  healAvailable: 1
 --- !u!1 &7279412096230134920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,6 +1950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet: {fileID: 5776331600527503598, guid: 8fe9bc9281ce7c349be821d50c34a45a, type: 3}
   _spawnQuantity: 5
+  damage: 10
 --- !u!1 &7326967688973100394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,6 +2456,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf1371e4bda986b43be800ad72650204, type: 3}
+--- !u!1 &7107700184510220216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8896589728312912657, guid: cf1371e4bda986b43be800ad72650204,
+    type: 3}
+  m_PrefabInstance: {fileID: 1861278091763985577}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6087792526786583803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5595926618530607186, guid: cf1371e4bda986b43be800ad72650204,
