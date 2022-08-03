@@ -20,5 +20,10 @@ public class MainPanel : MonoBehaviour
     {
         SceneChanger.instance.LoadLevel(scene);
     }
+
+    public void ResetPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
     
 }

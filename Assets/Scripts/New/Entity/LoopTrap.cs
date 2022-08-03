@@ -8,14 +8,14 @@ public class LoopTrap : MonoBehaviour
     [SerializeField] private float initialCooldown;
     [SerializeField] private float cooldown;
     [SerializeField] private GameObject explosion;
-    [SerializeField] private BoxCollider hitBox;
+    private BoxCollider hitBox;
     [SerializeField] private float durationEffect;
     [SerializeField] private GameObject trapBadEffect;
     [SerializeField] private GameObject trapGoodEffect;
     private void Start()
     {
 
-        hitBox = GetComponentInChildren<BoxCollider>();
+        hitBox = GetComponent<BoxCollider>();
         StartCoroutine(Timer(true));
     }
 
@@ -43,7 +43,7 @@ public class LoopTrap : MonoBehaviour
     {
         if(other.GetComponent<Entity>() != null)
         {
-            Collider[] allTargets = Physics.OverlapSphere(transform.position, explosion.GetComponent<SphereCollider>().radius);
+            Collider[] allTargets = Physics.OverlapSphere(transform.position, explosion.GetComponent<CapsuleCollider>().radius);
             foreach (var item in allTargets)
             {
                 if (item.GetComponent<IDamageable>() != null)

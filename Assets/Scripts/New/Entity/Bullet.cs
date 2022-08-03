@@ -34,15 +34,17 @@ public class Bullet : MonoBehaviour
         {
             if (other.GetComponent<IDamageable>() != null)
             {
-                other.GetComponent<IDamageable>().TakeDamage(mySpawner.damage);
-                if(PlayerPrefs.GetInt("PowerUp") == 1 && impactEffect != null) Instantiate(impactEffect, transform.position, Quaternion.identity);
+                if(PlayerPrefs.GetInt("PowerUp") == 1) other.GetComponent<IDamageable>().TakeDamage(mySpawner.damage * 2);
+                else other.GetComponent<IDamageable>().TakeDamage(mySpawner.damage);
+
+                if (impactEffect != null) Instantiate(impactEffect, transform.position, Quaternion.identity);
                 myCanastiten.ReturnObject(this);
             }
         }
 
         if (other.tag == "Limits")
         {
-            if (PlayerPrefs.GetInt("PowerUp") == 1 && impactEffect != null) Instantiate(impactEffect);
+            if (impactEffect != null) Instantiate(impactEffect);
             myCanastiten.ReturnObject(this);
         }
     }

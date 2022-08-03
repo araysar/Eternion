@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DeathBossEffect : MonoBehaviour
 {
-    public int winLevel = 5;
+    public int winLevel = 3;
     public AudioClip winMusic;
     void Start()
     {

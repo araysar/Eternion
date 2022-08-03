@@ -20,6 +20,7 @@ public class Character : Entity
         }
 
         if (PlayerPrefs.GetInt("PowerUp") == 1) powerUpEffect.SetActive(true);
+        else powerUpEffect.SetActive(false);
 
         UpdateLifeBar();
         rb = GetComponent<Rigidbody>();

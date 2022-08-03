@@ -19,7 +19,8 @@ public class Archer : Entity
 
     void Update()
     {
-        MoveAction();
+        if (currentHP > 0)
+            MoveAction();
     }
 
     public override void Move()
@@ -56,6 +57,8 @@ public class Archer : Entity
 
     public override void StartAttack()
     {
+        if (currentHP <= 0) return;
+
         MoveAction = delegate { };
         _myAnim.SetTrigger("attack");
 
@@ -63,12 +66,14 @@ public class Archer : Entity
 
     public override void EndAttack()
     {
+        if (currentHP <= 0) return;
+
         if (attackvoice != null)
         {
             myVoice.clip = attackvoice;
             myVoice.Play();
         }
-        Arrow arrow = Instantiate(arrowpref, transform.position, transform.rotation);
+        Arrow arrow = Instantiate(arrowpref, attackPoint.transform.position, transform.rotation);
         arrow.GetComponent<Rigidbody>().velocity = transform.forward * arrowSpeed;
         arrow.damage = arrowDamage;
         ExitAnimation();

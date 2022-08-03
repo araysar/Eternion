@@ -119,7 +119,7 @@ Transform:
   m_GameObject: {fileID: 2971828962763026351}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 19.83, y: 0, z: 27.17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7178568, y: 1, z: 1}
   m_Children:
   - {fileID: 2971828962866900424}
   - {fileID: 8053810607489599525}
@@ -140,13 +140,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c96bf7a029a9ab64e9320a944035f922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 40
   initialCooldown: 0
-  cooldown: 10
+  cooldown: 2
   explosion: {fileID: 4695221087980325027, guid: 59effdaf32d5dec49a7e314468418a82,
     type: 3}
-  hitBox: {fileID: 0}
-  durationEffect: 10
+  durationEffect: 2
   trapBadEffect: {fileID: 2971828962866900423}
   trapGoodEffect: {fileID: 6779880272972094194}
 --- !u!65 &4871092190147815916

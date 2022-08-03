@@ -49,7 +49,7 @@ public class SceneChanger : MonoBehaviour
         loadingImage.fillAmount = 1;
         loadingText.text = "100%";
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f); //tiempo para que si o si se note el efecto de transición
         loadingScreen.SetActive(false);
         loading.allowSceneActivation = true;
 
@@ -57,9 +57,6 @@ public class SceneChanger : MonoBehaviour
         {
             switch (scene)
             {
-                default:
-
-                    break;
                 case 0:
                     GameManager.instance.currentSong.clip = GameManager.instance.songs[0];
                     break;
@@ -75,7 +72,7 @@ public class SceneChanger : MonoBehaviour
                 case 4:
                     GameManager.instance.currentSong.clip = GameManager.instance.songs[3];
                     break;
-                case 5:
+                default:
                     GameManager.instance.currentSong.clip = GameManager.instance.songs[1];
                     break;
             }
