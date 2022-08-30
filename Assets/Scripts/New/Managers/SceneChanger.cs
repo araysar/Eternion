@@ -17,7 +17,6 @@ public class SceneChanger : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
             Destroy(gameObject);
@@ -41,7 +40,6 @@ public class SceneChanger : MonoBehaviour
         while(loading.progress < 0.9f)
         {
             float progress = Mathf.Clamp01(loading.progress / 0.9f);
-            Debug.Log(progress);
             loadingImage.fillAmount = progress;
             loadingText.text = progress * 100f + "%";
             yield return new WaitForEndOfFrame();
@@ -51,32 +49,36 @@ public class SceneChanger : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f); //tiempo para que si o si se note el efecto de transición
         loadingScreen.SetActive(false);
-        loading.allowSceneActivation = true;
 
-        if (GameManager.instance.songs[scene] != null)
+        switch (scene)
         {
-            switch (scene)
-            {
-                case 0:
-                    GameManager.instance.currentSong.clip = GameManager.instance.songs[0];
-                    break;
-                case 1:
-                    GameManager.instance.currentSong.clip = GameManager.instance.songs[1];
-                    break;
-                case 2:
-                    GameManager.instance.currentSong.clip = GameManager.instance.songs[1];
-                    break;
-                case 3:
-                    GameManager.instance.currentSong.clip = GameManager.instance.songs[2];
-                    break;
-                case 4:
-                    GameManager.instance.currentSong.clip = GameManager.instance.songs[3];
-                    break;
-                default:
-                    GameManager.instance.currentSong.clip = GameManager.instance.songs[1];
-                    break;
-            }
-            GameManager.instance.currentSong.Play();
+            case 0:
+                GameManager.instance.currentSong.clip = GameManager.instance.songs[0];
+                GameManager.instance.currentSong.loop = true;
+                break;
+            case 1:
+                GameManager.instance.currentSong.clip = GameManager.instance.songs[1];
+                GameManager.instance.currentSong.loop = true;
+                break;
+            case 2:
+                GameManager.instance.currentSong.clip = GameManager.instance.songs[1];
+                GameManager.instance.currentSong.loop = true;
+                break;
+            case 3:
+                GameManager.instance.currentSong.clip = GameManager.instance.songs[2];
+                GameManager.instance.currentSong.loop = false;
+                break;
+            case 4:
+                GameManager.instance.currentSong.clip = GameManager.instance.songs[3];
+                GameManager.instance.currentSong.loop = false;
+                break;
+            default:
+                GameManager.instance.currentSong.clip = GameManager.instance.songs[1];
+                GameManager.instance.currentSong.loop = false;
+                break;
         }
+        GameManager.instance.currentSong.Play();
+
+        loading.allowSceneActivation = true;
     }
 }

@@ -18,7 +18,6 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
         if (other.gameObject.layer == 8) //layer player
         {
             if (other.GetComponent<IDamageable>() != null)

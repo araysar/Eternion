@@ -1511,26 +1511,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8266418285455106652, guid: f9d92e0c37714314094c2899c80415d8,
-        type: 3}
-      propertyPath: songs.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8266418285455106652, guid: f9d92e0c37714314094c2899c80415d8,
-        type: 3}
-      propertyPath: songs.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: 185176957e87b674194a15ab8451bae5, type: 3}
-    - target: {fileID: 8266418285455106652, guid: f9d92e0c37714314094c2899c80415d8,
-        type: 3}
-      propertyPath: songs.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 1f1772120c9c00342936daabe55b1250, type: 3}
-    - target: {fileID: 8266418285455106652, guid: f9d92e0c37714314094c2899c80415d8,
-        type: 3}
-      propertyPath: songs.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 3a42dbec9afa27047a30ba19176d5639, type: 3}
     - target: {fileID: 8266418285455106653, guid: f9d92e0c37714314094c2899c80415d8,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -24,7 +24,7 @@ public class Enemy_Shaman : Entity
             currentAttack = attackScript[Random.Range(0, attackScript.Length)];
             StartAttack();
 
-            if (currentTarget != null) transform.LookAt(currentTarget.transform);
+            transform.LookAt(currentTarget.transform);
         }
     }
     public void StartFight()
@@ -32,7 +32,7 @@ public class Enemy_Shaman : Entity
         StartCoroutine(StartingFight());
     }
 
-    private IEnumerator StartingFight()
+    public IEnumerator StartingFight()
     {
         yield return new WaitForSeconds(timeToStartFight);
         MoveAction = Move;
@@ -51,14 +51,8 @@ public class Enemy_Shaman : Entity
 
     public override void EndAttack()
     {
-        if(currentHP > 0) currentAttack.EndAttack();
+        if (dead == true) return;
+        currentAttack.EndAttack();
     }
 
-    public void ReloadFight()
-    {
-        currentHP = maxHP;
-        onFight = false;
-    }
-
-    
 }

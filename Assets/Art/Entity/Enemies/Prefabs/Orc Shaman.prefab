@@ -3487,13 +3487,14 @@ MonoBehaviour:
   dead: 0
   animatorAttack: attack
   canAttack: 1
-  viewEnemyDistance: 20
-  isEnemy: 0
-  currentHP: 10
+  viewEnemyDistance: 30
+  isEnemy: 1
+  currentHP: 150
   maxHP: 150
+  loseScene: 4
   initialTransform: {x: 0, y: 0, z: 0}
   currentTarget: {fileID: 0}
-  attackCooldown: 0
+  attackCooldown: 1
   targetMask:
     serializedVersion: 2
     m_Bits: 256
@@ -8377,6 +8378,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet: {fileID: 8867916280601535101, guid: 8c1dda6e091582b428734ea2cb6b4cb4, type: 3}
   _spawnQuantity: 1
+  damage: 10
+  fromBoss: 1
 --- !u!1 &1092116039
 GameObject:
   m_ObjectHideFlags: 0

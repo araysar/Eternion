@@ -18,8 +18,6 @@ public class DeathBossEffect : MonoBehaviour
         GameManager.instance.currentSong.loop = false;
         GameManager.instance.currentSong.Play();
         yield return new WaitForSeconds(6);
-        PlayerPrefs.SetInt("PowerUp", 0);
-        PlayerPrefs.SetFloat("PlayerHP", 0);
         SceneChanger.instance.LoadLevel(winLevel);
     }
 }

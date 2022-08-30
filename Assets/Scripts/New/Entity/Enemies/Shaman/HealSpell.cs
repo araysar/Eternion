@@ -60,6 +60,13 @@ public class HealSpell : AttackScript
         bool interrupt = false;
         for (float i = 0; interrupt == false ; i += Time.deltaTime)
         {
+            if (_myEntity.currentHP <= 0)
+            {
+                healLaunchAS.Stop();
+                castHealEffect.SetActive(false);
+                yield break;
+            }
+
             if ((entityHp - _myEntity.currentHP) >= hpLostToInterrupt)
             {
                 castHealEffect.SetActive(false);
@@ -68,13 +75,6 @@ public class HealSpell : AttackScript
                 healLaunchAS.clip = spellInterruptedClip;
                 healLaunchAS.Play();
                 interrupt = true;
-            }
-
-            if (_myEntity.currentHP <= 0)
-            {
-                healLaunchAS.Stop();
-                castHealEffect.SetActive(false);
-                yield break;
             }
 
             if (i >= castingTime)
@@ -94,8 +94,11 @@ public class HealSpell : AttackScript
             yield return null;
         }
 
-        _myEntity.ExitAnimation();
-        actionCoroutine = null;
+        if(!_myEntity.dead)
+        {
+            _myEntity.ExitAnimation();
+            actionCoroutine = null;
+        }
     }
 
     private IEnumerator TimerParticles(GameObject particle, float timeToDisable)

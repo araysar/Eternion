@@ -11,6 +11,8 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] private int _spawnQuantity = 3;
     private ObjectPool<Bullet> _objPool;
     [HideInInspector] public float damage = 10;
+    public bool fromBoss = false;
+
 
     private void Awake()
     {
@@ -22,7 +24,7 @@ public class BulletSpawner : MonoBehaviour
         var b = _objPool.GetObject();
         b.GetComponent<Bullet>().myCanastiten = _objPool;
         b.GetComponent<Bullet>().mySpawner = this;
-        if (PlayerPrefs.GetInt("PowerUp") == 1)
+        if (PlayerPrefs.GetInt("PowerUp") == 1 && fromBoss == false)
         {
             b.GetComponent<Bullet>().powerUpEffect.SetActive(true);
             b.GetComponent<Bullet>().damage = damage * 2;

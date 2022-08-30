@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject feedback;
+
     void Start()
     {
         if (PlayerPrefs.GetInt("PowerUp") == 1) Destroy(gameObject);
@@ -24,6 +25,7 @@ public class PowerUp : MonoBehaviour
             PlayerPrefs.SetInt("PowerUp", 1);
             PlayerPrefs.Save();
             character.powerUpEffect.SetActive(true);
+            Instantiate(feedback, character.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

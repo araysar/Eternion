@@ -40,7 +40,7 @@ public class PhoenixSpell : AttackScript
 
     private void Update()
     {
-        if (actionCoroutine != null) _myEntity.transform.LookAt(_myEntity.currentTarget.transform);
+        if (actionCoroutine != null && !_myEntity.dead) _myEntity.transform.LookAt(_myEntity.currentTarget.transform);
     }
     public override void StartAttack()
     {
@@ -60,7 +60,7 @@ public class PhoenixSpell : AttackScript
         phoenixCastAS.Play();
         yield return new WaitForSeconds(castingTime);
         castPhoenixEffect.SetActive(false);
-        if (_myEntity.currentHP <= 0) yield break;
+        if (_myEntity.dead) yield break;
 
         GetComponentInParent<Animator>().SetTrigger(animatorLaunchName);
         yield return new WaitForSeconds(0.15f);
@@ -70,8 +70,11 @@ public class PhoenixSpell : AttackScript
 
         if (_phoenixSpawner != null) _phoenixSpawner.ShootMethod();
 
-        _myEntity.GetComponent<Enemy_Shaman>().ExitAnimation();
-        actionCoroutine = null;
+        if (!_myEntity.dead)
+        {
+            _myEntity.GetComponent<Enemy_Shaman>().ExitAnimation();
+            actionCoroutine = null;
+        }
     }
 
     public override void PowerUp(float multiplier)

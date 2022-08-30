@@ -28,10 +28,9 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerHP", player.GetComponent<Character>().currentHP);
         PlayerPrefs.Save();
         currentSong.clip = stageCompletedSong;
-        currentSong.Play();
         currentSong.loop = false;
+        currentSong.Play();
         yield return new WaitForSeconds(stageCompletedSong.length);
-        currentSong.loop = true;
         SceneChanger.instance.LoadLevel(scene);
     }
     void Awake()
@@ -40,8 +39,8 @@ public class GameManager : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
 
+        DontDestroyOnLoad(this);
         currentSong.clip = songs[0];
         currentSong.Play();
 
